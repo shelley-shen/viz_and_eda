@@ -91,3 +91,66 @@ weather_df %>%
     ## Warning: Removed 15 rows containing missing values (geom_point).
 
 ![](viz_2_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+\#3 Scales
+
+Start with the same plot; x and y scales.
+
+``` r
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax)) + 
+  geom_point(aes(color = name), alpha = .5) + 
+  labs(
+    title = "Temperature plot",
+    x = "Minimum daily temperature (C)",
+    y = "Maxiumum daily temperature (C)",
+    caption = "Data from the rnoaa package") + 
+  scale_x_continuous(
+    breaks = c(-15, 0, 15), 
+    labels = c("-15º C", "0", "15")) +
+  scale_y_continuous(
+    position = "left"
+  )
+```
+
+    ## Warning: Removed 15 rows containing missing values (geom_point).
+
+![](viz_2_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+Look at color scales.
+
+``` r
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax)) + 
+  geom_point(aes(color = name), alpha = .5) + 
+  labs(
+    title = "Temperature plot",
+    x = "Minimum daily temperature (C)",
+    y = "Maxiumum daily temperature (C)",
+    caption = "Data from the rnoaa package") + 
+  scale_color_hue(
+    name = "Location",
+    h = c(100, 300)) 
+```
+
+    ## Warning: Removed 15 rows containing missing values (geom_point).
+
+![](viz_2_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+``` r
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax)) + 
+  geom_point(aes(color = name), alpha = .5) + 
+  labs(
+    title = "Temperature plot",
+    x = "Minimum daily temperature (C)",
+    y = "Maxiumum daily temperature (C)",
+    caption = "Data from the rnoaa package") + 
+  viridis::scale_color_viridis(
+    name = "Location", 
+    discrete = TRUE)
+```
+
+    ## Warning: Removed 15 rows containing missing values (geom_point).
+
+![](viz_2_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
