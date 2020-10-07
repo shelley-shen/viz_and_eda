@@ -212,6 +212,11 @@ weather_df %>%
 ```
 
 
+## Quick note
+
+Summarize only gets you so far. 
+
+
 
 
 
